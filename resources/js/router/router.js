@@ -17,7 +17,7 @@ const checkPermissions = (to, permission) => {
     return { name: "dashboard" };
   } else {
     if (to.meta && to.meta.title) {
-      document.title = to.meta.title + " | Pharmacy";
+      document.title = to.meta.title + " | App Name";
     }
     return true;
   }
@@ -46,7 +46,7 @@ router.beforeEach((to, from, next) => {
         .catch((error) => {
             console.log(error);
         });
-    
+
       next();
   }
     else if (requiresAuth && isLoggedIn ) {
@@ -71,7 +71,7 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach((to) => {
   if (to.meta && to.meta.title) {
-    document.title = to.meta.title + " | Pharmacy";
+    document.title = to.meta.title + " | App Name";
   }
 });
 router.addRoute({
