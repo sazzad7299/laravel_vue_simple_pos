@@ -24,7 +24,12 @@ class Product extends Model
         'purchase_price',
         'discount',
         'tax',
-        'image_url',
+        'image',
         'status'
     ];
+    public function scopeSearch($query, $request)
+    {
+        return $query->where('sku', 'LIKE', '%'.$request.'%')
+            ->orWhere('name', 'LIKE', '%'.$request.'%');
+    }
 }
