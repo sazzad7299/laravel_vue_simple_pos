@@ -1,4 +1,4 @@
-// import pharmacy from './pharmacy'; import your new routes
+import store from './store';
 let routes = [
     {
         path: '/',
@@ -112,7 +112,7 @@ let routes = [
                     requiresAuth: true
                 }
             },
-            
+
             {
                 path: '/user',
                 name: 'user.index',
@@ -172,7 +172,7 @@ let routes = [
                     ignore:true,
                 }
             },
-            // ...pharmacy declear the file here
+            ...store
         ]
     },
 ];

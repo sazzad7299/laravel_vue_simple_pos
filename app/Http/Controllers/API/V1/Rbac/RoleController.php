@@ -76,7 +76,7 @@ class RoleController extends Controller
             return $this->respondError(null, 'Role Deleted Successfully');
         }else{
             $role->delete();
-            return $this->respondSuccess(null, 'Role Deleted Successfully');  
+            return $this->respondSuccess(null, 'Role Deleted Successfully');
         }
     }
 
