@@ -17,7 +17,6 @@ let store = [
       requiresAuth: true,
     },
   },
-
   {
     path: "/product/:id/edit",
     name: "product.edit",
@@ -34,6 +33,15 @@ let store = [
     meta: {
       title: "product Info",
       requiresAuth: true,
+    },
+  },
+  {
+    path: "/pos",
+    name: "sale.create",
+    component: () => import("../pages/pos/create.vue"),
+    meta: {
+      title: "POS",
+      requiresAuth: false,
     },
   },
 ];

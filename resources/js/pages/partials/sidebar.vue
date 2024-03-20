@@ -17,6 +17,11 @@
                                 <i class="fa bx bx-home"></i>
                                 {{ $t('trans.dashboard') }}
                             </router-link></li>
+                            <li :class="$route.name === 'sale.create' ? 'active' : ''"><router-link :to="{ name: 'sale.create' }"
+                                class="menu-link">
+                                <i class="fa bx bx-cart"></i>
+                                {{ $t('trans.POS') }}
+                            </router-link></li>
                         <li
                             v-if="hasPermission('user') || hasPermission('user.index') || hasPermission('user.create') || hasPermission('user.edit') || hasPermission('user.delete')">
                             <a><i class="fa bx bx-user"></i> {{ $t('trans.Users') }} <span
