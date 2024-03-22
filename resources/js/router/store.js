@@ -44,5 +44,23 @@ let store = [
       requiresAuth: false,
     },
   },
+  {
+    path: "/sale/list",
+    name: "sale.index",
+    component: () => import("../pages/sale/index.vue"),
+    meta: {
+      title: "Sale List",
+      requiresAuth: false,
+    },
+  },
+  {
+    path: "/sale/:id/view",
+    name: "sale.view",
+    component: () => import("../pages/sale/view.vue"),
+    meta: {
+      title: "View Sale",
+      requiresAuth: false,
+    },
+  },
 ];
 export default store;

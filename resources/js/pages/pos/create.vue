@@ -136,7 +136,7 @@ export default {
             allErrors: new Errors(),
             products: {},
             search: '',
-            perPage: 1,
+            perPage: 20,
             saleProducts: [],
             sale: {
                 subtotal: parseFloat(Math.round(0)).toFixed(2),

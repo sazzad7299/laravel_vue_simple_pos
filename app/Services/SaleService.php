@@ -2,33 +2,37 @@
 
 namespace App\Services;
 
-use App\Models\Product;
+use Carbon\Carbon;
+use App\Models\Sale;
 
 class SaleService
 {
-    use ImageUpload;
-    public function store($request, $product)
-    {
-        $requestData = $request->all();
-        
-        $product->fill($requestData)->save();
-    }
     public static function index($request)
     {
-        $products = Product::query()
-            ->when(request()->get('search'), function ($query) {
-                return $query->search(request()->get('search'));
+        return Sale::query()
+            ->when($request->has('from_date'), function ($query) use ($request) {
+                $fromDate = Carbon::parse($request->get('from_date'));
+
+                return $query->whereDate('created_at', '>=', $fromDate);
             })
-            ->latest()->paginate(request()->get('per_page', 1));
-        $products->getCollection()->transform(function ($product) {
-            $discountAmount = $product->selling_price * ($product->discount / 100);
-            $vatAmount = $product->selling_price * ($product->tax / 100);
-            $product->discount_amount = $discountAmount;
-            $product->vat_amount = $vatAmount;
+            ->when($request->has('to_date'), function ($query) use ($request) {
+                $toDate = Carbon::parse($request->get('to_date'));
 
-            return $product;
-        });
+                return $query->whereDate('created_at', '<=', $toDate);
+            })
+            ->latest()
+            ->paginate(request()->get('per_page', 10));
 
-        return $products;
+    }
+    public function store($requestData, $sale)
+    {
+        $sale->fill($requestData)->save();
+        return $sale;
+    }
+    public function show($id){
+        $sale = Sale::with('saleDetails:id,product_id,sale_id,quantity,price,subtotal,discount,tax', 'saleDetails.product:id,sku,name',)
+        ->findOrFail($id);
+
+     return $sale;
     }
 }
