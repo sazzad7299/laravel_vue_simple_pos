@@ -16,14 +16,16 @@ This guide provides instructions for setting up the Laravel + Vue.js project.
 ### 1. Clone the Repository
 Clone the GitHub repository for the project to your local machine:
 ```bash
-    `git clone git@github.com:sazzad7299/laravel_vue_simple_pos.git`
+    git clone git@github.com:sazzad7299/laravel_vue_simple_pos.git
 ```
 ### 2. Create Database
 Create a new database  `<db_name>`.
 ### 3. Configure Environment
 cd <project_directory>
-    `cp .env.example .env`
-    modify `.env` file
+ ```bash
+    cp .env.example .env
+ ```
+modify `.env` file
     `
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
@@ -33,16 +35,24 @@ cd <project_directory>
     DB_PASSWORD=<your_database_password>
     ` 
 ### 4. Install Composer
-    `composer install`
+```bash
+    composer install
+```
 Generate App Key
-    `php artisan key:generate`
+```bash
+    php artisan key:generate
+```
 ###5. Upload Database
 Import the provided database dump (db/db.sql) into the database you created in Step 2.
 ### 6. Install Dependencies
-    `npm install && npm run dev`
+```bash
+    npm install && npm run dev
+```
 ### 7. Run Project
 Once the setup is complete, you can start the Laravel development server to run the project:
-    `php artisan serve`
+```bash
+    php artisan serve
+```
 *** NOTE ***
 By Default, here create a admin, role, and permission for login and access controll.
 ### LOGIN Credentials
