@@ -16,26 +16,30 @@
                                 <span class="visually-hidden">Loading...</span>
                             </div>
                             <template v-if="products.data?.length > 0">
-                                <div v-for="(product, index) in products.data" :key="index">
-                                    <div class="card" @click="addProduct(product)">
-                                        <div class="poduct-card">
-                                            <div class="flex-shrink-0">
-                                                <span class="badge  rounded-pill bg-success ms-auto text-light">QTY:{{
-                                                    product.unit_value }}</span>
-                                                <img :src="image" alt="Credit Card" class="rounded"
-                                                    v-if="product.image == null">
-                                                <img :src="product.image ? '../' + product.image : '/images/blank.jpg'"
-                                                    alt="Credit Card" class="rounded" v-else>
+                                <div class="col-12">
+                                    <div v-for="(product, index) in products.data" :key="index">
+                                        <div class="card" @click="addProduct(product)">
+                                            <div class="poduct-card">
+                                                <div class="flex-shrink-0">
+                                                    <span class="badge  rounded-pill bg-success ms-auto text-light">QTY:{{
+                                                        product.unit_value }}</span>
+                                                    <img :src="image" alt="Credit Card" class="rounded"
+                                                        v-if="product.image == null">
+                                                    <img :src="product.image ? '../' + product.image : '/images/blank.jpg'"
+                                                        alt="Credit Card" class="rounded" v-else>
+                                                </div>
+                                                <span class="d-block">{{ product.name }}</span>
+                                                <span class="d-block"> <span v-if="product.discount_amount > 0"> {{
+                                                    parseFloat(product.selling_price - product.discount_amount).toFixed(2)
+                                                }}<del class="text-danger ml-2">{{ product.selling_price}}</del></span></span>
                                             </div>
-                                            <span class="d-block">{{ product.name }}</span>
-                                            <span class="d-block"> <span v-if="product.discount_amount > 0"> {{
-                                                parseFloat(product.selling_price - product.discount_amount).toFixed(2)
-                                            }}<del class="text-danger ml-2">{{ product.selling_price}}</del></span></span>
                                         </div>
                                     </div>
                                 </div>
+                               <div class="col-12">
                                 <pagination :data="products" :limit="10" :align="'right'"
-                                    @pagination-change-page="getPaginatedproduct($event)" />
+                                @pagination-change-page="getPaginatedproduct($event)" />
+                               </div>
                             </template>
                             <template v-else>
                                 <div>
