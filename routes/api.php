@@ -22,6 +22,7 @@ use App\Http\Controllers\API\V1\CountryWiseDivisionController;
 use App\Http\Controllers\API\V1\Rbac\RolePermissionController;
 use App\Http\Controllers\API\V1\DivisionWiseDistrictController;
 use App\Http\Controllers\API\V1\Rbac\AssignRolePermissionController;
+use App\Http\Controllers\API\V1\SaleController;
 
 Route::middleware(['throttle:200,1'])->group(function () {
     Route::group(['prefix' => 'v1'], function () {
@@ -64,6 +65,7 @@ Route::middleware(['throttle:200,1'])->group(function () {
             Route::get('district-wise-upzila/{district}', DistrictWiseUpzilaController::class)->name('district-wise-upzila');
             Route::get('upzila-wise-union/{upzila}', UpzilaWiseUnionController::class)->name('upzila-wise-union');
             Route::apiResource('product',ProductController::class);
+            Route::apiResource('sale',SaleController::class);
             Route::group(['prefix' => 'setting'], function () {
                 //utility setup
                 Route::get('language/all-codes', [LanguageController::class, 'allCodes']);

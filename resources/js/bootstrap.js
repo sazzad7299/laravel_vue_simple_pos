@@ -13,7 +13,7 @@ const api = axios.create({
 
 // Add an interceptor to include the token and CSRF token in the request headers
 api.interceptors.request.use((config) => {
-    const token = localStorage.getItem('pharmacy');
+    const token = localStorage.getItem('user_access_token');
     const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
     if (token) {
         config.headers.Authorization = `Bearer ${token}`;

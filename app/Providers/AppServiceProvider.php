@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 
+use App\Models\Sale;
 use App\Models\User;
 use App\Observers\GlobalObserve;
 use Illuminate\Support\ServiceProvider;

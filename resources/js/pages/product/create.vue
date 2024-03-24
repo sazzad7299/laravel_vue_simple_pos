@@ -30,7 +30,7 @@
                                     </span>
                                 </div>
                                 <div class="mb-3 col-md-3">
-                                    <label class="form-label" for="basic-default-name">Unit<span
+                                    <label class="form-label" for="basic-default-name">Unit (kg,litter,pieces)<span
                                         class="text-danger">*</span> </label>
                                     <input type="text" class="form-control" placeholder="unit" name="unit"
                                            autocomplete="off" v-model="product.unit">
@@ -42,7 +42,7 @@
                                 <div class="mb-3 col-md-3">
                                     <label class="form-label" for="basic-default-name">Unit Value<span
                                         class="text-danger">*</span> </label>
-                                    <input type="text" class="form-control" placeholder="unit value" name="unit_value"
+                                    <input type="number" class="form-control" placeholder="unit value" name="unit_value"
                                            autocomplete="off" v-model="product.unit_value">
                                     <span v-if="this.allErrors.has('unit_value')"
                                           class="error text-danger fw-semibold mt-3"
@@ -50,19 +50,9 @@
                                     </span>
                                 </div>
                                 <div class="mb-3 col-md-3">
-                                    <label class="form-label" for="basic-default-name">Sale Price<span
+                                    <label class="form-label" for="basic-default-name">Purchase Price<span
                                         class="text-danger">*</span> </label>
-                                    <input type="text" class="form-control" placeholder="Sale Price" name="selling_price"
-                                           autocomplete="off" v-model="product.selling_price">
-                                    <span v-if="this.allErrors.has('selling_price')"
-                                          class="error text-danger fw-semibold mt-3"
-                                          v-text="this.allErrors.get('selling_price')">
-                                    </span>
-                                </div>
-                                <div class="mb-3 col-md-3">
-                                    <label class="form-label" for="basic-default-name">Sale Price<span
-                                        class="text-danger">*</span> </label>
-                                    <input type="text" class="form-control" placeholder="Purchase Price" name="purchase_price"
+                                    <input type="number" class="form-control" placeholder="Purchase Price" name="purchase_price"
                                            autocomplete="off" v-model="product.purchase_price">
                                     <span v-if="this.allErrors.has('purchase_price')"
                                           class="error text-danger fw-semibold mt-3"
@@ -70,9 +60,20 @@
                                     </span>
                                 </div>
                                 <div class="mb-3 col-md-3">
+                                    <label class="form-label" for="basic-default-name">Sale Price<span
+                                        class="text-danger">*</span> </label>
+                                    <input type="number" class="form-control" placeholder="Sale Price" name="selling_price"
+                                           autocomplete="off" v-model="product.selling_price">
+                                    <span v-if="this.allErrors.has('selling_price')"
+                                          class="error text-danger fw-semibold mt-3"
+                                          v-text="this.allErrors.get('selling_price')">
+                                    </span>
+                                </div>
+
+                                <div class="mb-3 col-md-3">
                                     <label class="form-label" for="basic-default-name">Discount (%)<span
                                         class="text-danger">*</span> </label>
-                                    <input type="text" class="form-control" placeholder="Discount" name="discount"
+                                    <input type="number" class="form-control" placeholder="Discount" name="discount"
                                            autocomplete="off" v-model="product.discount">
                                     <span v-if="this.allErrors.has('discount')"
                                           class="error text-danger fw-semibold mt-3"
@@ -82,7 +83,7 @@
                                 <div class="mb-3 col-md-3">
                                     <label class="form-label" for="basic-default-name">Tax(%)<span
                                         class="text-danger">*</span> </label>
-                                    <input type="text" class="form-control" placeholder="tax" name="tax"
+                                    <input type="number" class="form-control" placeholder="tax" name="tax"
                                            autocomplete="off" v-model="product.tax">
                                     <span v-if="this.allErrors.has('tax')"
                                           class="error text-danger fw-semibold mt-3"

@@ -12,7 +12,7 @@
 									<h5 class="mb-2 mb-sm-0 align-items-left">{{ $t('trans.Language') }}</h5>
 									<div class="ms-auto align-items-right">
 										<button class="btn btn-secondary m-1" @click="showCreateModal()">
-											{{ $t('trans.Add') }} {{ $t('trans.Language') }}
+											{{ $t('trans.add') }} {{ $t('trans.Language') }}
 										</button>
 									</div>
 								</div>

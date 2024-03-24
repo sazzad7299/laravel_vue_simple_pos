@@ -39,8 +39,7 @@ export default function useAuth() {
 
   const loginUser = async (data) => {
     auth.setUser(data);
-    localStorage.setItem("pharmacy", data.token);
-    localStorage.setItem("CurrentBranch", data.pharmacy_id);
+    localStorage.setItem("user_access_token", data.token);
     await router.push({ name: "dashboard" });
   };
 
@@ -53,9 +52,7 @@ export default function useAuth() {
       .then((response) => {
         router.push({ name: "login" });
         auth.setUser(null);
-        localStorage.removeItem("pharmacy");
-        localStorage.removeItem("CurrentBranch");
-        localStorage.removeItem("pharmacyUser");
+        localStorage.removeItem("user_access_token");
         toastr.success(response.data.message);
       })
       .catch((error) => {
