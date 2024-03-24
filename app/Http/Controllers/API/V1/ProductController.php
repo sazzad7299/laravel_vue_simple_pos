@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\API\V1;
 
 use App\Models\Product;
+use Faker\Factory as Faker;
 use Illuminate\Http\Request;
 use App\Services\ProductService;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
@@ -22,6 +24,7 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
+
         $leaf = $this->productService->index($request);
 
         //  return $leaf;

@@ -3,19 +3,6 @@
         <div class="authentication-inner">
             <div class="card">
                 <div class="card-body">
-                    <div class="app-brand justify-content-center">
-                        <a href="#" class="app-brand-link">
-                            <span class="app-brand-text demo text-body fw-bolder text-uppercase" v-if="companyInfo">{{ companyInfo.company_name }}</span>
-                        </a>
-                    </div>
-                    <div class="app-brand justify-content-center">
-                        <a href="#" class="app-brand-link" v-if="companyInfo">
-                            <img :src="companyInfo.logo" alt="" class="logo">
-                        </a>
-                    </div>
-                    <!-- /Logo -->
-                    <p class="mb-4">Please sign-in to your account and start the adventure</p>
-
                     <form class="mb-3 fv-plugins-bootstrap5 fv-plugins-framework" @submit.prevent="submitForgotPassword">
                         <div class="mb-3 fv-plugins-icon-container">
                             <label for="email" class="form-label">Email</label>

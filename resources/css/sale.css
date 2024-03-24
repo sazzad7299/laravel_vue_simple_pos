@@ -94,7 +94,7 @@ select:focus {
     justify-content: center;
 }
 
-.medicine {
+.poduct-card {
     min-width: 150px;
     min-height: 150px;
     padding: 5px;
@@ -102,7 +102,7 @@ select:focus {
     cursor: pointer;
 }
 
-.medicine img {
+.poduct-card img {
     width: 100px;
 }
 
@@ -202,4 +202,7 @@ select:focus {
     height: 20px;
     padding: 0px;
     margin: 0px;
+}
+.visually-hidden{
+    display: none;
 }

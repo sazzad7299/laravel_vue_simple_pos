@@ -5,12 +5,12 @@
         </div>
         <nav class="nav navbar-nav">
             <ul class=" navbar-right">
-                
+
 
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                     <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown"
                         data-toggle="dropdown" aria-expanded="false">
-                        <img src="" alt="">{{ auth.user?.name }}
+                        <img src="/images/blank.jpg" alt="">{{ auth.user?.name }}
                     </a>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                         <router-link :to="{ name: 'profile' }" class="dropdown-item">

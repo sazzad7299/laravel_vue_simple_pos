@@ -19,10 +19,10 @@ app.use(router);
 app.use(pinia);
 app.use(ZiggyVue);
 app.use(i18nVue, {
-  lang: localStorage.getItem('lang') ? localStorage.getItem('lang') : 'en',
+ lang: localStorage.getItem('lang') ? localStorage.getItem('lang') : 'en',
   resolve: async (lang) => {
     const langs = import.meta.glob("../../lang/*.json");
-    return await langs[`../../lang/${lang}.json`]();
+    return await langs[`../../lang/php_${lang}.json`]();
   },
 });
 app.mixin(PermissionsMixin);

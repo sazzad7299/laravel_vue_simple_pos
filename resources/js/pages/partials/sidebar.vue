@@ -64,21 +64,15 @@
                                     :class="$route.name === 'product.create' ? 'current_page' : ''">
                                     <router-link :to="{ name: 'product.create' }" class="menu-link"> <i
                                             class="menu-icon tf-icons bx bx-add-to-queue"></i>{{ $t('trans.product') }} {{
-                                                $t('trans.Add')
+                                                $t('trans.add')
                                             }}</router-link>
                                 </li>
                                 <li v-if="hasPermission('product.index') || hasPermission('product.edit') || hasPermission('product.delete')"
                                     :class="$route.name === 'product.index' ? 'current-page' : ''">
                                     <router-link :to="{ name: 'product.index' }" class="menu-link"> <i
                                             class="menu-icon tf-icons bx bx-list-ol"></i>{{ $t('trans.product') }} {{
-                                                $t('trans.List')
+                                                $t('trans.list')
                                             }}</router-link>
-                                </li>
-                                <li v-if="hasPermission('role.index')" class="menu-item"
-                                    :class="$route.name === 'role.index' || $route.name === 'role.crate' || $route.name === 'role.edit' ? 'current_page' : ''">
-                                    <router-link :to="{ name: 'role.index' }" class="menu-link">
-                                        <i class="menu-icon tf-icons bx bx-check-shield"></i> {{ $t('trans.Role') }}
-                                    </router-link>
                                 </li>
                             </ul>
                         </li>
@@ -94,7 +88,7 @@
                                         {{ $t('trans.Languages') }}
                                     </router-link>
                                 </li>
-                                <li class="menu-item" :class="$route.name === 'cost.index' ? 'current-page' : ''">
+                                <li class="menu-item" :class="$route.name === 'appseting.index' ? 'current-page' : ''">
                                     <router-link :to="{ name: 'appseting.index' }" class="menu-link">
                                         <i class="menu-icon tf-icons bx bx-list-ol"></i>
                                         {{ $t('trans.App') }} {{ $t('trans.Setting') }}

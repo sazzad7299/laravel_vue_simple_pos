@@ -4,8 +4,6 @@ export const userStore = defineStore('auth', {
     state: () => {
         return {
             user: null,
-            pharmacy:null,
-            PharmacyUser:null
         }
     },
     getters: {
@@ -23,12 +21,7 @@ export const userStore = defineStore('auth', {
         setUser(data) {
             this.user = data;
             localStorage.setItem('user', JSON.stringify(data));
-            if(data == null){
-                localStorage.setItem('pharmacyUser', null);
-            }else{
-                localStorage.setItem('pharmacyUser', JSON.stringify(data.pharmacy_id));
-            }
-            
+
         },
         getUserFromLocalStorage() {
             const userData = localStorage.getItem('user');

@@ -2,7 +2,7 @@
     <div @keydown="clearError($event.target.name)" class="full-height">
         <div class="card py-4">
             <div class="row full-height">
-                <div class="col-md-6 px-4 border-right-2 border-dark">
+                <div class="col-md-6  border-right-2 border-dark">
                     <div class="row">
                         <div class="col-12 form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" placeholder="Name" v-model="search">
@@ -10,7 +10,7 @@
                             <span class="bx bx-barcode form-control-feedback right" aria-hidden="true"></span>
                         </div>
                     </div>
-                    <div class="card mt-2 border-top-2 border-dark product-list vertical-example">
+                    <div class=" product-list vertical-example">
                         <div class="row item-align-center">
                             <div class="spinner-border spinner-border-lg text-primary" role="status" v-show="Loader.items">
                                 <span class="visually-hidden">Loading...</span>
@@ -18,7 +18,7 @@
                             <template v-if="products.data?.length > 0">
                                 <div v-for="(product, index) in products.data" :key="index">
                                     <div class="card" @click="addProduct(product)">
-                                        <div class="d-flex flex-column align-items-center medicine">
+                                        <div class="poduct-card">
                                             <div class="flex-shrink-0">
                                                 <span class="badge  rounded-pill bg-success ms-auto text-light">QTY:{{
                                                     product.unit_value }}</span>
@@ -29,14 +29,13 @@
                                             </div>
                                             <span class="d-block">{{ product.name }}</span>
                                             <span class="d-block"> <span v-if="product.discount_amount > 0"> {{
-                                                product.selling_price - product.discount_amount }}<del
-                                                        class="text-danger ml-2">{{ product.selling_price
-                                                        }}</del></span></span>
+                                                parseFloat(product.selling_price - product.discount_amount).toFixed(2)
+                                            }}<del class="text-danger ml-2">{{ product.selling_price}}</del></span></span>
                                         </div>
                                     </div>
-                                    <pagination :data="products" :limit="10" :align="'right'"
-                                        @pagination-change-page="getPaginatedproduct($event)" />
                                 </div>
+                                <pagination :data="products" :limit="10" :align="'right'"
+                                    @pagination-change-page="getPaginatedproduct($event)" />
                             </template>
                             <template v-else>
                                 <div>
@@ -136,7 +135,7 @@ export default {
             allErrors: new Errors(),
             products: {},
             search: '',
-            perPage: 20,
+            perPage: 9,
             saleProducts: [],
             sale: {
                 subtotal: parseFloat(Math.round(0)).toFixed(2),
@@ -251,14 +250,14 @@ export default {
                     search,
                 }
             })
-            .then((response) => {
-                this.Loader.items = false;
-                this.products = response.data.result;
-            })
-            .catch((error) => {
-                this.Loader.items = false;
-                toastr.error(error.response.data.message);
-            })
+                .then((response) => {
+                    this.Loader.items = false;
+                    this.products = response.data.result;
+                })
+                .catch((error) => {
+                    this.Loader.items = false;
+                    toastr.error(error.response.data.message);
+                })
         },
         clearError(fieldName) {
             this.allErrors.errors[fieldName] = null;
@@ -289,4 +288,5 @@ export default {
 .footer-content {
     position: relative;
     bottom: 0px;
-}</style>
+}
+</style>
