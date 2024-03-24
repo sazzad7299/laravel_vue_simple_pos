@@ -1,11 +1,60 @@
-### Installation
-1. Clone the project <br>
-2. Go to the project root directory <br>
-3. In the first place run `composer install` <br>
-4. Consequently run `npm install` <br>
-5. After that new file create that name is .env 
-6. You can copy from .env.example all code then paste in .env file
-7. Accordingly create a database and its name pharmacy_management <br>
-If DB_USERNAME and DB_PASSWORD necessary it is good enough. Otherwise root name remove <br>
-8. Next run `php artisan migrate:fresh --seed` <br>
-9. Eventually `php artisan serve`
+
+# Project Setup Guide
+
+This guide provides instructions for setting up the Laravel + Vue.js project.
+
+## Prerequisites
+
+- Git installed on your machine
+- PHP installed on your machine
+- Composer installed on your machine
+- Node.js and npm installed on your machine
+- MySQL or another compatible database management system installed on your machine
+
+## Setup Instructions
+
+### 1. Clone the Repository
+Clone the GitHub repository for the project to your local machine:
+```bash
+    git clone git@github.com:sazzad7299/laravel_vue_simple_pos.git
+```
+### 2. Create Database
+Create a new database  `<db_name>`.
+### 3. Configure Environment
+cd <project_directory>
+ ```bash
+    cp .env.example .env
+ ```
+modify `.env` file
+    `
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=<db_name>
+    DB_USERNAME=<your_database_username>
+    DB_PASSWORD=<your_database_password>
+    ` 
+### 4. Install Composer
+```bash
+    composer install
+```
+Generate App Key
+```bash
+    php artisan key:generate
+```
+###5. Upload Database
+Import the provided database dump (db/db.sql) into the database you created in Step 2.
+### 6. Install Dependencies
+```bash
+    npm install && npm run dev
+```
+### 7. Run Project
+Once the setup is complete, you can start the Laravel development server to run the project:
+```bash
+    php artisan serve
+```
+*** NOTE ***
+By Default, here create a admin, role, and permission for login and access controll.
+### LOGIN Credentials
+`email`:`admin@gmail.com`
+`password`:`password`
