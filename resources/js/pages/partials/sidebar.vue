@@ -36,14 +36,14 @@
                                     :class="$route.name === 'user.create' ? 'current_page' : ''">
                                     <router-link :to="{ name: 'user.create' }" class="menu-link"> <i
                                             class="menu-icon tf-icons bx bx-add-to-queue"></i>{{ $t('trans.User') }} {{
-                                                $t('trans.Add')
+                                                $t('trans.add')
                                             }}</router-link>
                                 </li>
                                 <li v-if="hasPermission('user.index') || hasPermission('user.edit') || hasPermission('user.delete')"
                                     :class="$route.name === 'user.index' ? 'current-page' : ''">
                                     <router-link :to="{ name: 'user.index' }" class="menu-link"> <i
                                             class="menu-icon tf-icons bx bx-list-ol"></i>{{ $t('trans.User') }} {{
-                                                $t('trans.List')
+                                                $t('trans.list')
                                             }}</router-link>
                                 </li>
                                 <li v-if="hasPermission('role.index')" class="menu-item"
@@ -70,9 +70,7 @@
                                 <li v-if="hasPermission('product.index') || hasPermission('product.edit') || hasPermission('product.delete')"
                                     :class="$route.name === 'product.index' ? 'current-page' : ''">
                                     <router-link :to="{ name: 'product.index' }" class="menu-link"> <i
-                                            class="menu-icon tf-icons bx bx-list-ol"></i>{{ $t('trans.product') }} {{
-                                                $t('trans.list')
-                                            }}</router-link>
+                                            class="menu-icon tf-icons bx bx-list-ol"></i>{{ $t('trans.product') }} {{$t('trans.list')}}</router-link>
                                 </li>
                             </ul>
                         </li>

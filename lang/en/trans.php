@@ -27,5 +27,6 @@
         "Status" => "Status",
         "Language" => "Language",
         "Languages" => "Languages",
+        "App" => "App",
     ]
 ;

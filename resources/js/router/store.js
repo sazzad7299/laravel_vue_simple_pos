@@ -41,7 +41,7 @@ let store = [
     component: () => import("../pages/pos/create.vue"),
     meta: {
       title: "POS",
-      requiresAuth: false,
+      requiresAuth: true,
     },
   },
   {
@@ -50,7 +50,7 @@ let store = [
     component: () => import("../pages/sale/index.vue"),
     meta: {
       title: "Sale List",
-      requiresAuth: false,
+      requiresAuth: true,
     },
   },
   {
@@ -59,7 +59,7 @@ let store = [
     component: () => import("../pages/sale/view.vue"),
     meta: {
       title: "View Sale",
-      requiresAuth: false,
+      requiresAuth: true,
     },
   },
 ];
