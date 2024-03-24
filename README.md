@@ -14,9 +14,8 @@ This guide provides instructions for setting up the Laravel + Vue.js project.
 ## Setup Instructions
 
 ### 1. Clone the Repository
-
-    Clone the GitHub repository for the project to your local machine:
-    `git clone <repository_url>`
+Clone the GitHub repository for the project to your local machine:
+    git clone git@github.com:sazzad7299/laravel_vue_simple_pos.git
 ### 2. Create Database
 Create a new database  `<db_name>`.
 ### 3. Configure Environment
